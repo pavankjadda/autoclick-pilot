@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AutoClick Pilot test page</title>
+    <style>
+      body { font: 15px/1.5 system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+      button { padding: 6px 12px; margin: 4px 0; }
+      li.clicked { color: #15803d; font-weight: 600; }
+      #banner { position: fixed; inset: auto 16px 16px; padding: 16px; background: #1e1b4b; color: #fff; border-radius: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>AutoClick Pilot test page</h1>
+    <p>Add rules for <code>localhost</code> using any of these, then reload. Clicked targets turn green.</p>
+    <ul id="log">
+      <li data-target="by-id">ID: <code>start-button</code> <button id="start-button">Start</button></li>
+      <li data-target="by-name">Name: <code>continue</code> <button name="continue">Continue</button></li>
+      <li data-target="by-css">CSS: <code>.actions &gt; button.primary</code> <span class="actions"><button class="primary">Primary</button></span></li>
+      <li data-target="by-aria">ARIA label: <code>Accept all cookies</code> (banner appears after 2s)</li>
+      <li data-target="hidden">Hidden until 4s, CSS: <code>#late</code> <button id="late" style="display:none">Late</button></li>
+      <li data-target="js-link">javascript: link (ASP.NET style), CSS: <code>.js-link</code> <a class="js-link" href="javascript:mark('js-link')">Sign in</a></li>
+    </ul>
+
+    <script>
+      const mark = (target) => document.querySelector(`[data-target="${target}"]`).classList.add('clicked');
+      document.getElementById('start-button').onclick = () => mark('by-id');
+      document.querySelector('[name="continue"]').onclick = () => mark('by-name');
+      document.querySelector('.actions > button.primary').onclick = () => mark('by-css');
+      document.getElementById('late').onclick = () => mark('hidden');
+
+      setTimeout(() => {
+        const banner = document.createElement('div');
+        banner.id = 'banner';
+        banner.innerHTML = 'We use cookies. <button aria-label="Accept all cookies">OK</button>';
+        banner.querySelector('button').onclick = () => { mark('by-aria'); banner.remove(); };
+        document.body.append(banner);
+      }, 2000);
+
+      setTimeout(() => { document.getElementById('late').style.display = ''; }, 4000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+# Build artifacts
+*.zip
+*.crx
+
+# Extension signing key: never commit
+*.pem
+
+node_modules/
+.DS_Store
+.idea/
+.claude/

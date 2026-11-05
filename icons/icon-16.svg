@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Hand-tuned 16px variant of icon.svg: full-bleed tile, pixel-aligned burst, larger cursor. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="16" height="16" rx="3.5" fill="url(#bg)"/>
+  <g stroke="#ffffff" stroke-width="1.5" stroke-linecap="butt">
+    <path d="M5.75 1 V3.25"/>
+    <path d="M1 5.75 H3.25"/>
+    <path d="M2.4 2.4 L3.9 3.9"/>
+  </g>
+  <path fill="#ffffff" d="M5.5 5 V14.5 L8 12.1 L9.5 15.2 L11.3 14.4 L9.8 11.3 H13 Z"/>
+</svg>

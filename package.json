@@ -1,0 +1,25 @@
+{
+  "name": "autoclick-pilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that clicks chosen elements on page load.",
+  "author": {
+    "name": "pavankjadda",
+    "url": "https://github.com/pavankjadda"
+  },
+  "homepage": "https://github.com/pavankjadda/autoclick-pilot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavankjadda/autoclick-pilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pavankjadda/autoclick-pilot/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/",
+    "fixture": "python3 -m http.server 8000 --directory test",
+    "zip": "rm -f autoclick-pilot.zip && zip -qr autoclick-pilot.zip manifest.json icons/*.png src popup options -x \"*.DS_Store\"",
+    "icons": "node scripts/render-icons.mjs"
+  }
+}
